@@ -8,12 +8,11 @@ const Packages = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Memicu animasi hanya saat elemen masuk ke viewport
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 } // Animasi mulai ketika 10% bagian terlihat
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -78,8 +77,8 @@ const Packages = () => {
         <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="text-3xl md:text-5xl font-[800] text-slate-900 leading-tight tracking-tight font-['Montserrat'] uppercase">
-            Layanan <span className="text-blue-600 italic">Kami .</span>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight font-['Montserrat'] uppercase">
+            Layanan <span className="text-blue-600">Kami .</span>
           </h2>
           <div className={`w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full transition-all duration-1000 delay-300 ${
             isVisible ? 'w-16 opacity-100' : 'w-0 opacity-0'
@@ -95,7 +94,6 @@ const Packages = () => {
                 isVisible ? 'active' : ''
               }`}
               style={{ 
-                // Delay animasi berbeda untuk setiap kartu agar muncul bergantian
                 animationDelay: `${index * 150}ms` 
               }}
             >
@@ -119,7 +117,7 @@ const Packages = () => {
               {/* CONTENT SECTION */}
               <div className="p-6 flex flex-col flex-grow bg-white">
                 <div className="mb-5">
-                  <h3 className="text-xl font-[800] text-slate-900 mb-2 uppercase tracking-tight font-['Montserrat'] group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-slate-900 mb-2 uppercase tracking-tight font-['Montserrat'] group-hover:text-blue-600 transition-colors">
                     {plan.title}
                   </h3>
                   <div className="border-l-2 border-blue-500 pl-4 py-0.5">

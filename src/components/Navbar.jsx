@@ -123,7 +123,8 @@ const Navbar = () => {
                 key={item.name}
                 href={item.path}
                 onClick={(e) => handleNavClick(e, item)}
-                className={`px-8 py-4 text-base font-bold tracking-widest uppercase transition-all
+                className={`px-8 py-3 text-sm sm:text-base font-semibold tracking-wide uppercase transition-all
+
                   ${
                     location.pathname === item.path
                       ? 'text-yellow-400 bg-white/5 border-l-4 border-yellow-400'
