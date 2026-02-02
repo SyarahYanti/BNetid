@@ -65,18 +65,18 @@ const Hero = () => {
             segmen pengguna di Indonesia.
           </p>
 
-          {/* Buttons */}
+          {/* Buttons dengan Animasi Berlawanan */}
           <div className="flex flex-wrap gap-3 sm:gap-4 pt-3 mb-4">
             <button
               onClick={handleLayananClick}
-              className="bg-yellow-400 hover:bg-yellow-500 text-blue-950 px-5 sm:px-8 py-3 sm:py-4 rounded-xl font-black flex items-center gap-2 transition-all active:scale-95 text-xs sm:text-sm shadow-lg"
+              className="bg-yellow-400 hover:bg-yellow-500 text-blue-950 px-5 sm:px-8 py-3 sm:py-4 rounded-xl font-black flex items-center gap-2 transition-all active:scale-95 text-xs sm:text-sm shadow-lg animate-[float-up_3s_ease-in-out_infinite]"
             >
               Layanan Kami <ArrowRight size={16} className="sm:rotate-0" />
             </button>
 
             <button
               onClick={handleProdukClick}
-              className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-xl font-bold flex items-center gap-2 transition-all text-xs sm:text-sm"
+              className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-xl font-bold flex items-center gap-2 transition-all text-xs sm:text-sm animate-[float-down_3s_ease-in-out_infinite]"
             >
               <Box size={16} /> Produk Kami
             </button>
@@ -107,11 +107,20 @@ const Hero = () => {
           </div>
         </div>
       </main>
+
+      {/* Tambahkan Style ini di index.css proyek Anda atau gunakan tag style ini */}
+      <style>{`
+        @keyframes float-up {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+        }
+        @keyframes float-down {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(8px); }
+        }
+      `}</style>
     </section>
   );
 };
 
 export default Hero;
-
-
-

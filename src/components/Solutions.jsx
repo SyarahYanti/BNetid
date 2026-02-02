@@ -60,14 +60,17 @@ const Solutions = () => {
       <div className="container mx-auto max-w-6xl px-4 flex flex-col items-center">
 
         {/* JUDUL - Montserrat memberikan kesan kokoh dan berwibawa */}
-        <div
-          className={`text-center mb-10 md:mb-16 transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-        >
-          <h2 className="text-4xl md:text-6xl font-[900] tracking-tighter text-slate-900 font-['Montserrat']">
-            Produk <span className="text-blue-600 italic">Kami .</span>
-          </h2>
-          <div className="w-20 h-1.5 bg-blue-600 mx-auto mt-4 rounded-full"></div>
-        </div>
+        {/* Section Produk Kami yang sudah disamakan dengan Layanan Kami */}
+<div
+  className={`text-center mb-10 md:mb-16 transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+>
+  <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight font-['Montserrat'] uppercase">
+    Produk <span className="text-blue-600">Kami .</span>
+  </h2>
+  <div className={`w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full transition-all duration-1000 delay-300 ${
+    isVisible ? 'w-16 opacity-100' : 'w-0 opacity-0'
+  }`}></div>
+</div>
 
         {/* TAB AREA */}
         <div className="w-full flex justify-center mb-12">
