@@ -50,13 +50,14 @@ const Clients = () => {
             {clientLogos.map((client, index) => (
               <div
                 key={`${client.name}-${index}`}
-                className="flex items-center justify-center w-[40%] md:w-[28%] h-16 md:h-20 transition-transform duration-300 hover:scale-105"
+                // Ditambahkan overflow-hidden agar scale tidak menabrak tetangganya
+                className="flex items-center justify-center w-[40%] md:w-[28%] h-16 md:h-20 transition-transform duration-300 hover:scale-105 overflow-hidden"
               >
                 <img
                   src={client.url}
                   alt={client.name}
                   className={`max-h-12 md:max-h-16 w-auto object-contain mix-blend-multiply ${
-                    client.name === "Polbangtan" ? "scale-[5]" : ""
+                    client.name === "Polbangtan" ? "scale-[3.5]" : ""
                   }`}
                 />
               </div>
@@ -68,13 +69,14 @@ const Clients = () => {
               {[...clientLogos, ...clientLogos].map((client, index) => (
                 <div
                   key={`${client.name}-${index}`}
-                  className="mx-4 bg-white p-8 w-64 h-32 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center flex-shrink-0"
+                  // Ditambahkan overflow-hidden juga pada mode marquee
+                  className="mx-4 bg-white p-8 w-64 h-32 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center flex-shrink-0 overflow-hidden"
                 >
                   <img
                     src={client.url}
                     alt={client.name}
                     className={`max-h-14 w-full object-contain mix-blend-multiply ${
-                      client.name === "Polbangtan" ? "scale-[5]" : ""
+                      client.name === "Polbangtan" ? "scale-[3.5]" : ""
                     }`}
                   />
                 </div>
