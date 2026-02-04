@@ -74,7 +74,8 @@ const ContactCTA = () => {
                     <Phone size={16} className="text-slate-500" /> (0411) 3681124
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <MessageSquare size={16} className="text-slate-500" /> 0811-4440-0723
+                    <MessageSquare size={16} className="text-slate-500" /> 0811-4440-0723 {" "}
+                    <span className="text-slate-500 font-medium">(Aly)</span>
                   </p>
                 </div>
               </div>
@@ -89,7 +90,7 @@ const ContactCTA = () => {
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
                     <Phone size={16} className="text-slate-500" /> 0811-4440-0723{" "}
-                    <span className="text-slate-500 font-medium">(Ali)</span>
+                    <span className="text-slate-500 font-medium">(Aly)</span>
                   </p>
                 </div>
               </div>
