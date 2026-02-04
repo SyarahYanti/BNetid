@@ -43,7 +43,7 @@ const Solutions = () => {
     celebeshost: {
       title: "celebeshost.id",
       subtitle: "Cloud Services",
-      desc: "Solusi hosting dan cloud untuk bisnis modern.",
+      desc: "celebeshost.id adalah layanan penyedia web hosting, domain, VPS dan Colocation Server.",
       image: "/images/clients/celebeshost bg page.png",
       features: ["Web Hosting", "Domain Resmi", "VPS Server", "Colocation Center", "SSL Certificate"],
       icon: "/images/clients/celebeshost logo.png"

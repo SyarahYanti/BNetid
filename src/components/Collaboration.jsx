@@ -8,13 +8,13 @@ const Collaboration = () => {
     {
       name: "KOMINFO",
       logo: logoKominfo,
-      desc: "Celebes Media Jaringan bekerja sama dengan Kementerian Kominfo untuk membangun jangkauan dan akses internet cepat."
+      desc: `Layanan BNet didukung oleh izin resmi dari Dirjen PPI dengan Nomor Izin Jartaplok: 249/TEL.01.02/2020.
+PT Celebes Media Jaringan sebagai badan hukum terdaftar memiliki NIB: 9120205822526.`
     },
     {
       name: "APJII",
       logo: logoApjii,
-      desc: `Layanan BNet didukung oleh izin resmi dari Dirjen PPI dengan Nomor Izin Jartaplok: 249/TEL.01.02/2020.
-PT Celebes Media Jaringan sebagai badan hukum terdaftar memiliki NIB: 9120205822526.`
+      desc: "Celebes Media Jaringan bergabung dan menjadi anggota resmi APJII sejak tahun 2017 untuk membangun jangkauan akses internet cepat khususnya di Indonesia Timur"
     }
   ];
 
@@ -23,9 +23,9 @@ PT Celebes Media Jaringan sebagai badan hukum terdaftar memiliki NIB: 9120205822
     <section className="bg-[#0f172a]/5 py-24 px-6 border-t border-slate-200/50 font-['Inter',sans-serif]">
       <div className="container mx-auto">
 
-        {/* Judul Section - Menggunakan Montserrat untuk kesan geometris dan stabil */}
+        {/* Judul Section - Ukuran font sedikit diperkecil untuk keseimbangan visual */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-[900] text-[#0f172a] mb-4 tracking-tighter font-['Montserrat'] uppercase">
+          <h2 className="text-3xl md:text-5xl font-[900] text-[#0f172a] mb-4 tracking-tighter font-['Montserrat'] uppercase">
             Kolaborasi dan <span className="text-blue-600">Keanggotaan</span><span className="text-blue-600">.</span>
           </h2>
           <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
@@ -47,7 +47,7 @@ PT Celebes Media Jaringan sebagai badan hukum terdaftar memiliki NIB: 9120205822
                 />
               </div>
 
-              {/* Deskripsi - Ukuran diperbesar (16px-18px) agar sangat ramah bagi mata senior */}
+              {/* Deskripsi - Tetap ramah bagi mata senior */}
               <p className="text-slate-500 text-[16px] md:text-[18px] font-medium leading-relaxed max-w-md italic border-t border-slate-100 pt-8">
                 "{item.desc}"
               </p>

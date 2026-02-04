@@ -15,17 +15,16 @@ import {
 
 const ContactCTA = () => {
   return (
-    /* font-sans (Inter) memberikan kejernihan teks yang luar biasa di layar digital */
     <section
       id="kontak"
-      className="min-h-screen w-full bg-[#0f172a] overflow-hidden font-['Inter',sans-serif] relative"
+      className="h-screen w-full bg-[#0f172a] overflow-hidden font-['Inter',sans-serif] relative"
     >
       {/* Background Glow */}
       <div className="absolute top-[-5%] left-[-5%] w-[30%] h-[30%] bg-blue-600/5 blur-[100px] rounded-full hidden lg:block"></div>
 
-      <div className="w-full flex flex-col lg:flex-row min-h-screen">
+      <div className="w-full flex flex-col lg:flex-row h-full">
         {/* SISI KIRI: GAMBAR */}
-        <div className="w-full lg:w-[45%] h-[350px] lg:h-screen relative shrink-0">
+        <div className="w-full lg:w-[45%] h-[30vh] lg:h-full relative shrink-0">
           <img
             src="/images/clients/aset bg kontak kami.png"
             alt="Contact Support"
@@ -46,39 +45,37 @@ const ContactCTA = () => {
         </div>
 
         {/* SISI KANAN: KONTEN */}
-        <div className="w-full lg:w-[55%] flex flex-col justify-center p-6 sm:p-12 lg:p-16 xl:p-24 bg-[#0f172a] relative z-10">
-          {/* Header - Montserrat Bold untuk kesan profesional dan stabil */}
-          <div className="mb-10 lg:mb-14">
+        <div className="w-full lg:w-[55%] flex flex-col justify-center p-6 sm:p-10 lg:p-12 xl:p-20 bg-[#0f172a] relative z-10 h-full overflow-hidden">
+          {/* Header */}
+          <div className="mb-6 lg:mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-yellow-400/30 text-yellow-400 text-[11px] font-bold mb-4 uppercase tracking-[0.2em] bg-yellow-400/5 font-['Montserrat']">
               <Sparkles size={10} />
               Let's Connect
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-[900] text-white leading-[1.1] tracking-tighter font-['Montserrat']">
+            {/* Kedua baris teks diset ke font-normal */}
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1] tracking-tighter font-['Montserrat'] font-normal">
               Tertarik dengan <br />
-              <span className="text-yellow-400 italic">layanan kami?</span>
+              <span className="text-yellow-400">layanan kami?</span>
             </h2>
           </div>
 
-          {/* Kontak & Lokasi Grid (Optimasi Keterbacaan Senior) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 mb-12">
+          {/* Kontak & Lokasi Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-10">
             {/* Kolom 1: Kontak */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div>
                 <h3 className="text-yellow-400 font-bold text-[12px] uppercase tracking-[0.3em] mb-4 opacity-80 border-b border-white/5 pb-2 font-['Montserrat']">
                   Kantor Pusat
                 </h3>
-                <div className="space-y-3 text-[15px] lg:text-[16px]">
+                <div className="space-y-3 text-[14px] lg:text-[15px]">
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Mail size={16} className="text-slate-500" />{" "}
-                    bnet.info@b-net.id
+                    <Mail size={16} className="text-slate-500" /> bnet.info@b-net.id
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Phone size={16} className="text-slate-500" /> (0411)
-                    3681124
+                    <Phone size={16} className="text-slate-500" /> (0411) 3681124
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <MessageSquare size={16} className="text-slate-500" />{" "}
-                    0811-4440-0722
+                    <MessageSquare size={16} className="text-slate-500" /> 0811-4440-0723
                   </p>
                 </div>
               </div>
@@ -87,14 +84,12 @@ const ContactCTA = () => {
                 <h3 className="text-yellow-400 font-bold text-[12px] uppercase tracking-[0.3em] mb-4 opacity-80 border-b border-white/5 pb-2 font-['Montserrat']">
                   Marketing
                 </h3>
-                <div className="space-y-3 text-[15px] lg:text-[16px]">
+                <div className="space-y-3 text-[14px] lg:text-[15px]">
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Mail size={16} className="text-slate-500" />{" "}
-                    marketing@b-net.id
+                    <Mail size={16} className="text-slate-500" /> marketing@b-net.id
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Phone size={16} className="text-slate-500" />{" "}
-                    0811-4440-0723{" "}
+                    <Phone size={16} className="text-slate-500" /> 0811-4440-0723{" "}
                     <span className="text-slate-500 font-medium">(Ali)</span>
                   </p>
                 </div>
@@ -120,10 +115,10 @@ const ContactCTA = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <p className="font-[800] text-xl text-white group-hover:text-yellow-400 transition-colors leading-tight font-['Montserrat']">
+                    <p className="font-[800] text-lg lg:text-xl text-white group-hover:text-yellow-400 transition-colors leading-tight font-['Montserrat']">
                       Menara Bosowa Lt.15
                     </p>
-                    <p className="text-[14px] lg:text-[15px] font-medium text-slate-400 leading-relaxed group-hover:text-slate-200 transition-colors">
+                    <p className="text-[13px] lg:text-[14px] font-medium text-slate-400 leading-relaxed group-hover:text-slate-200 transition-colors">
                       Jl. Jend. Sudirman No.7 Pisang Utara, <br />
                       Kota Makassar, Sulawesi Selatan, <br />
                       Indonesia.{" "}
@@ -138,36 +133,24 @@ const ContactCTA = () => {
           </div>
 
           {/* CTA & Socials */}
-          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-8">
+          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
             <button
               onClick={() =>
                 window.open(
-                  "https://wa.me/628114440?text=Halo%20BNet%2C%20saya%20tertarik%20untuk%20konsultasi%20gratis%20mengenai%20layanan%20internet.",
-                  "_blank",
+                  "https://wa.me/6281144400723?text=Halo%20BNet%2C%20saya%20tertarik%20untuk%20konsultasi%20gratis%20mengenai%20layanan%20internet.",
+                  "_blank"
                 )
               }
               className="w-full sm:w-auto bg-yellow-400 hover:bg-white text-[#0f172a] font-[900] py-4 px-10 rounded-xl flex items-center justify-center gap-3 text-[12px] tracking-[0.15em] uppercase transition-all shadow-xl shadow-yellow-400/10 active:scale-95 font-['Montserrat']"
             >
-              Konsultasi Gratis <ArrowUp size={16} className="rotate-45" />
+              Hubungi kami <ArrowUp size={16} className="rotate-0" />
             </button>
             <div className="flex items-center gap-3">
               {[
-                {
-                  icon: <Linkedin size={18} />,
-                  link: "https://www.linkedin.com/in/bnet-id-b29587136",
-                },
-                {
-                  icon: <Instagram size={18} />,
-                  link: "https://www.instagram.com/bnetid",
-                },
-                {
-                  icon: <Facebook size={18} />,
-                  link: "https://www.facebook.com/BNetIDInfo",
-                },
-                {
-                  icon: <Youtube size={18} />,
-                  link: "https://www.youtube.com/channel/UCE34BvmZ3-BiXeJ4fsF03Nw",
-                },
+                { icon: <Linkedin size={18} />, link: "https://www.linkedin.com/in/bnet-id-b29587136" },
+                { icon: <Instagram size={18} />, link: "https://www.instagram.com/bnetid" },
+                { icon: <Facebook size={18} />, link: "https://www.facebook.com/BNetIDInfo" },
+                { icon: <Youtube size={18} />, link: "https://www.youtube.com/channel/UCE34BvmZ3-BiXeJ4fsF03Nw" },
               ].map((social, idx) => (
                 <a
                   key={idx}

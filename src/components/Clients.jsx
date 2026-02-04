@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react"; // useEffect dihapus dari sini
 
 const Clients = () => {
-  const [showAll, setShowAll] = useState(false);
+  // Menggunakan fungsi inisialisasi agar tidak perlu useEffect
+  const [showAll] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.location.pathname === "/klien";
+    }
+    return false;
+  });
 
   const clientLogos = [
     { name: "Bosowa Semen", url: "/images/clients/bosowa semen logo our client.png" },
@@ -14,19 +20,12 @@ const Clients = () => {
     { name: "BPS Makassar", url: "/images/clients/badan pusat statistik makassar logo our client.png" },
     { name: "Golden", url: "/images/clients/golden.jpg" },
     { name: "Bosowa Berlian Motor", url: "/images/clients/bosowa-berlian-motor-logo our client.png" },
+    { name: "Polbangtan", url: "/images/clients/politeknik.png" },
+    { name: "SAS", url: "/images/clients/sas logo our client.png" },
+    { name: "Pengadilan Negeri Makassar", url: "/images/clients/pengadilan negri kota makassar logo our client.png" },
     { name: "Dimarco", url: "/images/clients/dimarco logo our client.png" },
     { name: "Universitas UMI", url: "/images/clients/universitas umi logo our client.png" },
-    { name: "Pengadilan Negeri Makassar", url: "/images/clients/pengadilan negri kota makassar logo our client.png" },
-    { name: "SAS", url: "/images/clients/sas logo our client.png" },
   ];
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (window.location.pathname === "/klien") {
-        setShowAll(true);
-      }
-    }
-  }, []);
 
   return (
     <section className="relative py-24 px-6 overflow-hidden border-t border-slate-100 bg-white font-sans">
@@ -38,7 +37,6 @@ const Clients = () => {
       )}
 
       <div className="container mx-auto text-center relative z-10">
-        {/* JUDUL - Montserrat untuk kesan kokoh */}
         <h2 className="text-4xl md:text-5xl font-[900] text-[#1e40af] mb-4 tracking-tight font-['Montserrat']">
           Klien <span className="text-yellow-500">Kami</span>.
         </h2>
@@ -48,28 +46,23 @@ const Clients = () => {
         </p>
 
         {showAll ? (
-          /* ================= PAGE /KLIEN ================= */
-          /* Menggunakan Flexbox agar sisa logo di baris terakhir otomatis ke tengah */
           <div className="flex flex-wrap justify-center gap-y-16 gap-x-8 md:gap-y-24 md:gap-x-16 max-w-5xl mx-auto px-4">
-            {clientLogos.map((client, index) => {
-              // Logo Golden sekarang masuk ke grup normal, 
-              // sedangkan SAS dan UMI akan otomatis ke tengah jika berada di baris terakhir
-              return (
-                <div
-                  key={`${client.name}-${index}`}
-                  className="flex items-center justify-center w-[40%] md:w-[28%] h-16 md:h-20 transition-transform duration-300 hover:scale-105"
-                >
-                  <img
-                    src={client.url}
-                    alt={client.name}
-                    className="max-h-12 md:max-h-16 w-auto object-contain mix-blend-multiply"
-                  />
-                </div>
-              );
-            })}
+            {clientLogos.map((client, index) => (
+              <div
+                key={`${client.name}-${index}`}
+                className="flex items-center justify-center w-[40%] md:w-[28%] h-16 md:h-20 transition-transform duration-300 hover:scale-105"
+              >
+                <img
+                  src={client.url}
+                  alt={client.name}
+                  className={`max-h-12 md:max-h-16 w-auto object-contain mix-blend-multiply ${
+                    client.name === "Polbangtan" ? "scale-[5]" : ""
+                  }`}
+                />
+              </div>
+            ))}
           </div>
         ) : (
-          /* ================= BERANDA (MARQUEE) ================= */
           <div className="relative flex overflow-x-hidden justify-center">
             <div className="flex animate-marquee whitespace-nowrap py-12">
               {[...clientLogos, ...clientLogos].map((client, index) => (
@@ -80,7 +73,9 @@ const Clients = () => {
                   <img
                     src={client.url}
                     alt={client.name}
-                    className="max-h-14 w-full object-contain mix-blend-multiply"
+                    className={`max-h-14 w-full object-contain mix-blend-multiply ${
+                      client.name === "Polbangtan" ? "scale-[5]" : ""
+                    }`}
                   />
                 </div>
               ))}
