@@ -54,7 +54,6 @@ const Solutions = () => {
     <section
       ref={sectionRef}
       id="produk"
-      /* Ditambahkan overflow-x-hidden agar tidak ada scroll liar ke samping */
       className="bg-[#f8fafc] min-h-screen w-full py-12 md:py-24 font-['Inter',sans-serif] overflow-x-hidden"
     >
       <div className="container mx-auto max-w-6xl px-4 flex flex-col items-center">
@@ -73,14 +72,14 @@ const Solutions = () => {
 
         {/* TAB AREA */}
         <div className="w-full flex justify-center mb-12">
-          {/* justify-start pada mobile agar tab tidak mengecil dan bisa di-scroll */}
-          <div className="bg-white p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-start md:justify-center gap-2 overflow-x-auto no-scrollbar max-w-full">
+          {/* justify-center dipaksakan di mobile agar terlihat semua jika layar cukup luas */}
+          <div className="bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-center gap-1.5 md:gap-2 overflow-x-auto no-scrollbar max-w-full">
             {Object.keys(content).map(key => (
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                /* shrink-0 ditambahkan agar button tetap di ukuran 90px/130px dan tidak tertekuk */
-                className={`w-[90px] h-[55px] md:w-[130px] md:h-[65px] rounded-xl transition-all duration-300 flex items-center justify-center p-3 shrink-0
+                /* Ukuran diubah dari w-[90px] ke w-[75px] dan padding dikurangi agar muat di HP */
+                className={`w-[75px] h-[50px] md:w-[130px] md:h-[65px] rounded-xl transition-all duration-300 flex items-center justify-center p-2 md:p-3 shrink-0
                   ${activeTab === key
                     ? 'bg-blue-600 shadow-lg shadow-blue-200 scale-105'
                     : 'bg-transparent hover:bg-slate-50'
@@ -99,7 +98,6 @@ const Solutions = () => {
 
         {/* CARD UTAMA */}
         <div
-          /* h-fit ditambahkan agar container memanjang ke bawah mengikuti teks (tidak memotong konten) */
           className={`rounded-[3rem] overflow-hidden border border-blue-100 shadow-2xl flex flex-col md:flex-row w-full bg-white h-fit transition-all duration-1000
             ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
         >
@@ -133,7 +131,6 @@ const Solutions = () => {
               {content[activeTab].features.map((item, i) => (
                 <div
                   key={i}
-                  /* h-fit dan flex-wrap (implicit) memastikan box fitur membesar jika teks panjang */
                   className="flex items-center justify-start gap-4 bg-white px-5 py-4 rounded-2xl border border-slate-100 shadow-sm hover:border-blue-200 transition-colors"
                 >
                   <div className="bg-blue-50 p-1.5 rounded-full shrink-0">
