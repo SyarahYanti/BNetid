@@ -30,13 +30,13 @@ const Packages = () => {
       title: "FourNet",
       image: "/images/clients/layanan1.png",
       desc: "Layanan enterprise untuk solusi internet middle up bussiness dengan kecepatan, performa internet stabil, SLA, dan dukungan teknis 24 jam.",
-      features: ["Bandwidth sesuai permintaan", "CIR Ratio 1:1", "SLA 99%", "IP public", "Support 24 jam"]
+      features: ["Bandwidth sesuai permintaan", "CIR Ratio 1:1", "Service Level Agreement", "IP public", "Support 24 jam"]
     },
     {
       title: "FourNet Lite",
       image: "/images/clients/layanan2.png",
       desc: "Layanan broadband (up to) untuk solusi intenet small & middle bussiness dengan performa stabil dan dukungan teknis 24 jam.",
-      features: ["Bandwidth sesuai permintaan", "CIR Ratio 1:4", "SLA 99%", "Support 24 jam"]
+      features: ["Bandwidth sesuai permintaan", "CIR Ratio 1:4", "Service Level Agreement", "Support 24 jam"]
     },
     {
       title: "Bandwidth On Demand",

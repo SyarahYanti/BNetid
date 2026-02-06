@@ -116,7 +116,7 @@ const ContactCTA = () => {
                   </div>
                   <div className="space-y-2">
                     <p className="font-[800] text-lg lg:text-xl text-white group-hover:text-yellow-400 transition-colors leading-tight font-['Montserrat']">
-                      Menara Bosowa Lt.15
+                      Menara Bosowa Lt.15 Unit H
                     </p>
                     <p className="text-[13px] lg:text-[14px] font-medium text-slate-400 leading-relaxed group-hover:text-slate-200 transition-colors">
                       Jl. Jend. Sudirman No.7 Pisang Utara, <br />
