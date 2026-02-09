@@ -17,11 +17,11 @@ const Clients = () => {
     { name: "Bosowa Semen", url: "/images/clients/6.bosowa semen logo our client.png" },
     { name: "Politeknik Bosowa", url: "/images/clients/7.politeknik bosowa.png" },
     { name: "Kreasi Binar", url: "/images/clients/8.kreasi binar.png" },
-    { name: "BPS Provinsi", url: "/images/clients/9.bps provinsi.png" },
-    { name: "Politeknik", url: "/images/clients/10.politeknik.png" },
+    { name: "BPS Provinsi", url: "/images/clients/9.bps provinsi.png" }, // Indeks 8
+    { name: "Politeknik", url: "/images/clients/10.politeknik.png" },     // Indeks 9
     { name: "Kontak Perkasa", url: "/images/clients/11.kontak perkasa.png" },
     { name: "BNI", url: "/images/clients/12.bni.png" },
-    { name: "BBVET Maros", url: "/images/clients/13.bbvet maros logo our client.png" },
+    { name: "BBVET Maros", url: "/images/clients/13.bbvet maros logo our client.png" }, // Indeks 12
     { name: "Dimarco", url: "/images/clients/14.dimarco logo our client.png" },
     { name: "BNS", url: "/images/clients/15.bns.png" },
     { name: "Golden", url: "/images/clients/16.golden.jpg" },
@@ -34,90 +34,88 @@ const Clients = () => {
     { name: "Universitas Bosowa", url: "/images/clients/23.universitas bosowa.png" },
   ];
 
+  const getLogoStyle = (index) => {
+    // Penyesuaian khusus untuk item 9, 10, dan 13 (indeks 8, 9, 12) agar lebih besar
+    if ([8, 9, 12].includes(index)) {
+      return "w-[200px] md:w-[240px] h-auto object-contain transition-transform hover:scale-105 duration-300";
+    }
+    
+    if (index === 3 || index === 4) {
+      return "w-[170px] md:w-[215px] px-6 h-auto object-contain transition-transform hover:scale-110 duration-300";
+    }
+    if (index >= 0 && index <= 2) {
+      return "w-[150px] md:w-[185px] px-8 h-auto object-contain transition-transform hover:scale-105 duration-300";
+    }
+    if ([13, 20, 21, 22].includes(index)) {
+      return "w-[120px] md:w-[150px] px-4 h-auto object-contain transition-transform hover:scale-105 duration-300";
+    }
+    return "w-[180px] md:w-[220px] h-auto object-contain transition-transform hover:scale-105 duration-300";
+  };
+
   return (
     <section className="relative py-20 px-6 overflow-hidden border-t border-slate-100 bg-white font-sans">
-      {showAll && (
-        <div
-          className="absolute inset-0 opacity-5 bg-no-repeat bg-center bg-contain pointer-events-none"
-          style={{ backgroundImage: "url('/images/bg/watermark-network.png')" }}
-        />
-      )}
-
       <div className="container mx-auto text-center relative z-10">
-        <h2 className="text-3xl md:text-5xl font-black tracking-tight font-['Montserrat'] uppercase mb-4">
-          <span className="text-slate-900">KLIEN</span>{" "}
-          <span className="text-blue-600">KAMI</span>
-          <span className="text-blue-600"> .</span>
+        <h2 className="text-3xl md:text-5xl font-black tracking-tight font-['Montserrat'] uppercase mb-4 text-slate-900">
+          KLIEN <span className="text-blue-600">KAMI .</span>
         </h2>
 
-        <p className="text-gray-500 text-base md:text-lg font-medium mb-12 max-w-2xl mx-auto">
+        <p className="text-gray-500 text-base md:text-lg font-medium mb-16 max-w-2xl mx-auto">
           Beberapa perusahaan dan instansi yang menggunakan layanan kami
         </p>
 
         {showAll ? (
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-16 max-w-7xl mx-auto">
             {clientLogos.map((client, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center p-4 h-40 w-[calc(50%-1.5rem)] md:w-[calc(25%-2rem)] border-none shadow-none bg-transparent"
-              >
-                <div className="w-full h-[72px] flex items-center justify-center">
-                  <img
-  src={client.url}
-  alt={client.name}
-  className={`max-h-full max-w-full object-contain ${
-    [1, 2].includes(index)
-      ? "scale-90"
-      : [0, 3, 4].includes(index)
-      ? "scale-110"
-      : ""
-  }`}
-/>
-                </div>
+              <div key={index} className="flex items-center justify-center h-24 md:h-32 w-[45%] sm:w-1/4 lg:w-1/5">
+                <img src={client.url} alt={client.name} className={getLogoStyle(index)} />
               </div>
             ))}
           </div>
         ) : (
-          <div className="relative flex overflow-x-hidden justify-center">
-            <div className="flex animate-marquee whitespace-nowrap py-8">
-              {[...clientLogos, ...clientLogos].map((client, index) => (
-                <div
-                  key={`${client.name}-${index}`}
-                  className="mx-4 bg-white p-6 w-80 h-44 rounded-xl shadow-sm border border-gray-50 flex items-center justify-center flex-shrink-0"
-                >
-                  <div className="w-full h-[72px] flex items-center justify-center">
-                    <img
-                      src={client.url}
-                      alt={client.name}
-                      className="max-h-full max-w-full object-contain"
-                    />
+          <div className="relative w-full overflow-hidden">
+            <div className="flex animate-marquee whitespace-nowrap py-4">
+              {[...clientLogos, ...clientLogos].map((client, index) => {
+                const originalIndex = index % clientLogos.length;
+                return (
+                  <div key={index} className="mx-4 md:mx-6 flex items-center justify-center flex-shrink-0">
+                    <div className="bg-white border border-slate-100 shadow-sm rounded-xl p-6 h-32 md:h-40 flex items-center justify-center min-w-[200px] md:min-w-[280px]">
+                      <img src={client.url} alt={client.name} className={getLogoStyle(originalIndex)} />
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
+            
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
           </div>
         )}
       </div>
 
       {!showAll && (
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-              }
-              .animate-marquee {
-                display: flex;
-                width: fit-content;
-                animation: marquee 50s linear infinite;
-              }
-              .animate-marquee:hover {
-                animation-play-state: paused;
-              }
-            `,
-          }}
-        />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            @keyframes marquee { 
+              0% { transform: translateX(0); } 
+              100% { transform: translateX(-50%); } 
+            }
+            .animate-marquee { 
+              display: flex; 
+              width: fit-content; 
+              animation: marquee 40s linear infinite; 
+            }
+            .animate-marquee:hover { 
+              animation-play-state: paused; 
+            }
+            .overflow-hidden::-webkit-scrollbar {
+              display: none;
+            }
+            .overflow-hidden {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+          `,
+        }} />
       )}
     </section>
   );
