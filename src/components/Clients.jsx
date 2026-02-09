@@ -15,10 +15,10 @@ const Clients = () => {
     { name: "Bosowa Transportasi", url: "/images/clients/4.bosowa transportasi.png" },
     { name: "Bosowa Asuransi", url: "/images/clients/5.bosowa asuransi.png" },
     { name: "Bosowa Semen", url: "/images/clients/6.bosowa semen logo our client.png" },
-    { name: "Politeknik Bosowa", url: "/images/clients/7.politeknik bosowa.png" },
-    { name: "Kreasi Binar", url: "/images/clients/8.kreasi binar.png" },
+    { name: "Politeknik Bosowa", url: "/images/clients/7.politeknik bosowa.png" }, // index 6
+    { name: "Kreasi Binar", url: "/images/clients/8.kreasi binar.png" },           // index 7
     { name: "BPS Provinsi", url: "/images/clients/9.bps provinsi.png" },
-    { name: "Politeknik", url: "/images/clients/10.politeknik.png" },
+    { name: "Politeknik", url: "/images/clients/10.politeknik.png" },             // index 9
     { name: "Kontak Perkasa", url: "/images/clients/11.kontak perkasa.png" },
     { name: "BNI", url: "/images/clients/12.bni.png" },
     { name: "BBVET Maros", url: "/images/clients/13.bbvet maros logo our client.png" },
@@ -29,26 +29,39 @@ const Clients = () => {
     { name: "Bank Mandiri", url: "/images/clients/18.bank-mandiri logo our client.png" },
     { name: "Bank Sulteng", url: "/images/clients/19.bank-sulteng-logo our client.png" },
     { name: "Elit", url: "/images/clients/20.elit.png" },
-    { name: "Pengadilan Negeri", url: "/images/clients/21.pengadilan negri.png" },
+    { name: "Pengadilan Negeri", url: "/images/clients/21.pengadilan negri.png" }, // index 20 (diperkecil aman)
     { name: "SAS", url: "/images/clients/22.sas logo our client.png" },
     { name: "Universitas Bosowa", url: "/images/clients/23.universitas bosowa.png" },
   ];
 
   const getLogoStyle = (index) => {
-    // Logo khusus: indeks 8, 9, 12 (tetap besar di semua device)
+    // Logo besar utama (8,9,12)
     if ([8, 9, 12].includes(index)) {
       return "w-[200px] md:w-[240px] max-w-none h-auto object-contain transition-transform hover:scale-105 duration-300";
+    }
+
+    // Perbesar sedikit logo 7 & 8
+    if ([6, 7].includes(index)) {
+      return "w-[190px] md:w-[225px] h-auto object-contain transition-transform hover:scale-105 duration-300";
     }
 
     if (index === 3 || index === 4) {
       return "w-[170px] md:w-[215px] px-6 h-auto object-contain transition-transform hover:scale-110 duration-300";
     }
+
     if (index >= 0 && index <= 2) {
       return "w-[150px] md:w-[185px] px-8 h-auto object-contain transition-transform hover:scale-105 duration-300";
     }
-    if ([13, 20, 21, 22].includes(index)) {
+
+    // Logo 21 (index 20) -> diperkecil tapi TIDAK PERNAH keluar container
+    if (index === 20) {
+      return "w-[95px] md:w-[120px] max-h-full h-auto object-contain transition-transform hover:scale-105 duration-300";
+    }
+
+    if ([13, 21, 22].includes(index)) {
       return "w-[120px] md:w-[150px] px-4 h-auto object-contain transition-transform hover:scale-105 duration-300";
     }
+
     return "w-[180px] md:w-[220px] h-auto object-contain transition-transform hover:scale-105 duration-300";
   };
 
@@ -78,7 +91,6 @@ const Clients = () => {
                 const originalIndex = index % clientLogos.length;
                 return (
                   <div key={index} className="mx-4 md:mx-6 flex items-center justify-center flex-shrink-0">
-                    {/* KOTAK SUDAH DIRINGKAS */}
                     <div className="bg-white border border-slate-100 shadow-sm rounded-xl p-4 h-24 md:h-28 flex items-center justify-center min-w-[200px] md:min-w-[280px]">
                       <img
                         src={client.url}
@@ -112,13 +124,6 @@ const Clients = () => {
               }
               .animate-marquee:hover { 
                 animation-play-state: paused; 
-              }
-              .overflow-hidden::-webkit-scrollbar {
-                display: none;
-              }
-              .overflow-hidden {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
               }
             `,
           }}
