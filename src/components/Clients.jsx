@@ -17,11 +17,11 @@ const Clients = () => {
     { name: "Bosowa Semen", url: "/images/clients/6.bosowa semen logo our client.png" },
     { name: "Politeknik Bosowa", url: "/images/clients/7.politeknik bosowa.png" },
     { name: "Kreasi Binar", url: "/images/clients/8.kreasi binar.png" },
-    { name: "BPS Provinsi", url: "/images/clients/9.bps provinsi.png" }, // Indeks 8
-    { name: "Politeknik", url: "/images/clients/10.politeknik.png" },     // Indeks 9
+    { name: "BPS Provinsi", url: "/images/clients/9.bps provinsi.png" },
+    { name: "Politeknik", url: "/images/clients/10.politeknik.png" },
     { name: "Kontak Perkasa", url: "/images/clients/11.kontak perkasa.png" },
     { name: "BNI", url: "/images/clients/12.bni.png" },
-    { name: "BBVET Maros", url: "/images/clients/13.bbvet maros logo our client.png" }, // Indeks 12
+    { name: "BBVET Maros", url: "/images/clients/13.bbvet maros logo our client.png" },
     { name: "Dimarco", url: "/images/clients/14.dimarco logo our client.png" },
     { name: "BNS", url: "/images/clients/15.bns.png" },
     { name: "Golden", url: "/images/clients/16.golden.jpg" },
@@ -35,11 +35,11 @@ const Clients = () => {
   ];
 
   const getLogoStyle = (index) => {
-    // Penyesuaian khusus untuk item 9, 10, dan 13 (indeks 8, 9, 12) agar lebih besar
+    // Logo khusus: indeks 8, 9, 12 (tetap besar di semua device)
     if ([8, 9, 12].includes(index)) {
-      return "w-[200px] md:w-[240px] h-auto object-contain transition-transform hover:scale-105 duration-300";
+      return "w-[200px] md:w-[240px] max-w-none h-auto object-contain transition-transform hover:scale-105 duration-300";
     }
-    
+
     if (index === 3 || index === 4) {
       return "w-[170px] md:w-[215px] px-6 h-auto object-contain transition-transform hover:scale-110 duration-300";
     }
@@ -78,14 +78,19 @@ const Clients = () => {
                 const originalIndex = index % clientLogos.length;
                 return (
                   <div key={index} className="mx-4 md:mx-6 flex items-center justify-center flex-shrink-0">
-                    <div className="bg-white border border-slate-100 shadow-sm rounded-xl p-6 h-32 md:h-40 flex items-center justify-center min-w-[200px] md:min-w-[280px]">
-                      <img src={client.url} alt={client.name} className={getLogoStyle(originalIndex)} />
+                    {/* KOTAK SUDAH DIRINGKAS */}
+                    <div className="bg-white border border-slate-100 shadow-sm rounded-xl p-4 h-24 md:h-28 flex items-center justify-center min-w-[200px] md:min-w-[280px]">
+                      <img
+                        src={client.url}
+                        alt={client.name}
+                        className={getLogoStyle(originalIndex)}
+                      />
                     </div>
                   </div>
                 );
               })}
             </div>
-            
+
             <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
           </div>
@@ -93,29 +98,31 @@ const Clients = () => {
       </div>
 
       {!showAll && (
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            @keyframes marquee { 
-              0% { transform: translateX(0); } 
-              100% { transform: translateX(-50%); } 
-            }
-            .animate-marquee { 
-              display: flex; 
-              width: fit-content; 
-              animation: marquee 40s linear infinite; 
-            }
-            .animate-marquee:hover { 
-              animation-play-state: paused; 
-            }
-            .overflow-hidden::-webkit-scrollbar {
-              display: none;
-            }
-            .overflow-hidden {
-              -ms-overflow-style: none;
-              scrollbar-width: none;
-            }
-          `,
-        }} />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @keyframes marquee { 
+                0% { transform: translateX(0); } 
+                100% { transform: translateX(-50%); } 
+              }
+              .animate-marquee { 
+                display: flex; 
+                width: fit-content; 
+                animation: marquee 40s linear infinite; 
+              }
+              .animate-marquee:hover { 
+                animation-play-state: paused; 
+              }
+              .overflow-hidden::-webkit-scrollbar {
+                display: none;
+              }
+              .overflow-hidden {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+              }
+            `,
+          }}
+        />
       )}
     </section>
   );
