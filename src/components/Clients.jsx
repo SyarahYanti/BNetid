@@ -54,7 +54,7 @@ const Clients = () => {
     }
 
     // Logo 21 (index 20) -> diperkecil tapi TIDAK PERNAH keluar container
-    if (index === 20) {
+    if (index === 20 || index === 21 || index === 22) {
       return "w-[95px] md:w-[120px] max-h-full h-auto object-contain transition-transform hover:scale-105 duration-300";
     }
 
