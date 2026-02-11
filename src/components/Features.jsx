@@ -3,10 +3,26 @@ import { Zap, ShieldCheck, Headphones, Tag } from "lucide-react";
 
 const Features = () => {
   const dataFeatures = [
-    { title: "Internet Cepat", desc: "Koneksi internet berkecepatan tinggi dengan teknologi fiber optik terbaru.", icon: <Zap className="text-blue-600 group-hover:text-white transition-colors" size={24} /> },
-    { title: "Legal & Terpercaya", desc: "Didukung oleh izin resmi dari Dirjen PPI dan memiliki NIB resmi.", icon: <ShieldCheck className="text-blue-600 group-hover:text-white transition-colors" size={24} /> },
-    { title: "Harga Terbaik", desc: "Paket internet kompetitif dengan berbagai pilihan sesuai kebutuhan bisnis Anda.", icon: <Tag className="text-blue-600 group-hover:text-white transition-colors" size={24} /> },
-    { title: "Support 24/7", desc: "Tim support profesional siap membantu menangani kendala Anda kapan saja.", icon: <Headphones className="text-blue-600 group-hover:text-white transition-colors" size={24} /> },
+    { 
+      title: "Internet Cepat", 
+      desc: "Koneksi internet berkecepatan tinggi dengan teknologi fiber optik terbaru.", 
+      icon: <Zap size={24} /> 
+    },
+    { 
+      title: "Legal & Terpercaya", 
+      desc: "Didukung oleh izin resmi dari Dirjen PPI dan memiliki NIB resmi.", 
+      icon: <ShieldCheck size={24} /> 
+    },
+    { 
+      title: "Harga Terbaik", 
+      desc: "Paket internet kompetitif dengan berbagai pilihan sesuai kebutuhan bisnis Anda.", 
+      icon: <Tag size={24} /> 
+    },
+    { 
+      title: "Support 24/7", 
+      desc: "Tim support profesional siap membantu menangani kendala Anda kapan saja.", 
+      icon: <Headphones size={24} /> 
+    },
   ];
 
   const [isPaused, setIsPaused] = useState(true);
@@ -89,15 +105,15 @@ const Features = () => {
             </div>
           </div>
 
-          {/* LIST FITUR VERTIKAL - Optimalisasi Keterbacaan */}
+          {/* LIST FITUR VERTIKAL - Tampilan Aktif Permanen */}
           <div className="w-full lg:w-[45%] flex flex-col gap-5">
             {dataFeatures.map((item, index) => (
               <div
                 key={index}
-                className="group flex items-center gap-6 p-6 rounded-[30px] bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-300"
+                className="flex items-center gap-6 p-6 rounded-[30px] bg-white border border-blue-200 shadow-2xl shadow-blue-500/10 -translate-y-1 transition-all duration-300"
               >
-                {/* Ikon (Kiri) */}
-                <div className="w-16 h-16 shrink-0 rounded-2xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300">
+                {/* Ikon (Kiri) - Background Biru Permanen */}
+                <div className="w-16 h-16 shrink-0 rounded-2xl bg-blue-600 flex items-center justify-center text-white transition-all duration-300">
                   {item.icon}
                 </div>
 
@@ -106,7 +122,7 @@ const Features = () => {
                   <h3 className="text-lg md:text-xl font-[800] text-slate-900 font-['Montserrat'] tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-[14px] md:text-[15px] leading-relaxed font-medium text-slate-500 group-hover:text-slate-600 transition-colors">
+                  <p className="text-[14px] md:text-[15px] leading-relaxed font-medium text-slate-600 transition-colors">
                     {item.desc}
                   </p>
                 </div>

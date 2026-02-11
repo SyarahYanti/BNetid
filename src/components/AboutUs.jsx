@@ -50,7 +50,7 @@ const AboutUs = () => {
                 
                 <h2 className="text-lg sm:text-xl md:text-2xl font-black mb-5 sm:mb-6 flex items-center gap-3">
                   <span className="w-6 sm:w-8 h-1 bg-yellow-400 rounded-full"></span>
-                  BNet Profile
+                  BNetid
                 </h2>
                 
                 <div className="space-y-4 sm:space-y-5 text-slate-200 font-medium leading-snug text-[13px] sm:text-sm md:text-base">
