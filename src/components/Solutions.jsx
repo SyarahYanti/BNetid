@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 
 const Solutions = () => {
   const [activeTab, setActiveTab] = useState('m365');
@@ -22,7 +22,8 @@ const Solutions = () => {
       desc: "Solusi lengkap kolaborasi kerja dengan aplikasi Office premium, penyimpanan cloud aman, dan fitur keamanan tingkat tinggi.",
       image: "/images/clients/microsoft 365 bg page.png",
       features: ["Word, Excel, PPT", "Outlook & Teams", "1TB Cloud Storage", "Keamanan Siber", "Update Otomatis"],
-      icon: "/images/clients/microsoft 365 pilihan.png"
+      icon: "/images/clients/microsoft 365 pilihan.png",
+      link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20Microsoft%20365"
     },
     vps: {
       title: "VPS",
@@ -30,7 +31,8 @@ const Solutions = () => {
       desc: "Server virtual dengan performa tinggi dan resource dedicated.",
       image: "/images/clients/vps bg page.png",
       features: ["Resource Dedicated", "Full Root Access", "Skalabilitas Mudah", "Uptime 99.9%", "Pilihan OS Luas"],
-      icon: "/images/clients/vps icon pilihan.png"
+      icon: "/images/clients/vps icon pilihan.png",
+      link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20VPS"
     },
     colocation: {
       title: "Colocation Server",
@@ -38,7 +40,8 @@ const Solutions = () => {
       desc: "Titipkan server fisik Anda di data center kami yang aman.",
       image: "/images/clients/colocation server bg page.png",
       features: ["Rak Server Aman", "Listrik Redundan", "Pendingin Optimal", "Bandwidth Tinggi", "Physical Security"],
-      icon: "/images/clients/colocation logo.png"
+      icon: "/images/clients/colocation logo.png",
+      link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20Colocation%20Server"
     },
     celebeshost: {
       title: "celebeshost.id",
@@ -46,7 +49,8 @@ const Solutions = () => {
       desc: "celebeshost.id adalah layanan penyedia web hosting, domain, VPS dan Colocation Server.",
       image: "/images/clients/celebeshost bg page.png",
       features: ["Web Hosting", "Domain Resmi", "VPS Server", "Colocation Center", "SSL Certificate"],
-      icon: "/images/clients/celebeshost logo.png"
+      icon: "/images/clients/celebeshost logo.png",
+      link: "https://www.celebeshost.id/"
     }
   };
 
@@ -72,13 +76,11 @@ const Solutions = () => {
 
         {/* TAB AREA */}
         <div className="w-full flex justify-center mb-12">
-          {/* justify-center dipaksakan di mobile agar terlihat semua jika layar cukup luas */}
           <div className="bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-center gap-1.5 md:gap-2 overflow-x-auto no-scrollbar max-w-full">
             {Object.keys(content).map(key => (
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                /* Ukuran diubah dari w-[90px] ke w-[75px] dan padding dikurangi agar muat di HP */
                 className={`w-[75px] h-[50px] md:w-[130px] md:h-[65px] rounded-xl transition-all duration-300 flex items-center justify-center p-2 md:p-3 shrink-0
                   ${activeTab === key
                     ? 'bg-blue-600 shadow-lg shadow-blue-200 scale-105'
@@ -127,7 +129,7 @@ const Solutions = () => {
               "{content[activeTab].desc}"
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-10">
               {content[activeTab].features.map((item, i) => (
                 <div
                   key={i}
@@ -139,6 +141,19 @@ const Solutions = () => {
                   <span className="text-[12px] font-bold text-slate-700 uppercase tracking-wider text-left">{item}</span>
                 </div>
               ))}
+            </div>
+
+            {/* TOMBOL DAFTAR */}
+            <div className="w-full flex justify-center md:justify-start">
+              <a
+                href={content[activeTab].link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center gap-3 bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold text-sm tracking-widest hover:bg-blue-600 transition-all duration-300 shadow-xl shadow-slate-200 font-['Montserrat']"
+              >
+                Daftar sekarang
+                <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
           </div>
         </div>

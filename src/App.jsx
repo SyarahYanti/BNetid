@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+// Import HashLink untuk menangani scroll ke ID section
+import { HashLink } from 'react-router-hash-link';
 import { MapPin } from 'lucide-react'; 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,13 +13,16 @@ import Collaboration from './components/Collaboration';
 import ContactCTA from './components/ContactCTA';
 import Clients from './components/Clients';
 
-// Komponen otomatis scroll ke atas saat rute berubah
+// Komponen otomatis scroll ke atas saat rute berubah (untuk halaman non-hash)
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // Jika tidak ada hash (#), scroll ke paling atas
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   return null;
 };
@@ -82,11 +87,13 @@ function App() {
                   Tautan lainnya
                 </h4>
                 <ul className="text-sm space-y-2 text-slate-400 font-medium flex flex-col">
-                  <Link to="/layanan" className="hover:text-yellow-400 transition-colors w-fit">Layanan</Link>
-                  <Link to="/produk" className="hover:text-yellow-400 transition-colors w-fit">Produk</Link>
-                  <Link to="/klien" className="hover:text-yellow-400 transition-colors w-fit">Klien</Link>
+                  {/* Menggunakan HashLink agar bisa auto-scroll ke ID di halaman Home */}
+                  <HashLink smooth to="/#beranda" className="hover:text-yellow-400 transition-colors w-fit">Beranda</HashLink>
+                  <HashLink smooth to="/#layanan" className="hover:text-yellow-400 transition-colors w-fit">Layanan</HashLink>
+                  <HashLink smooth to="/#produk" className="hover:text-yellow-400 transition-colors w-fit">Produk</HashLink>
+                  <HashLink smooth to="/#klien" className="hover:text-yellow-400 transition-colors w-fit">Klien</HashLink>
                   <Link to="/tentang-kami" className="hover:text-yellow-400 transition-colors w-fit">Tentang Kami</Link>
-                  <Link to="/kontak" className="hover:text-yellow-400 transition-colors w-fit">Kontak</Link>
+                  <HashLink smooth to="/#kontak" className="hover:text-yellow-400 transition-colors w-fit">Kontak</HashLink>
                 </ul>
               </div>
 
@@ -111,9 +118,8 @@ function App() {
           </div>
         </footer>
 
-        {/* Floating Action Buttons - Modern Horizontal Layout */}
+        {/* Floating Action Buttons */}
         <div className="fixed bottom-6 right-6 z-50 flex flex-row items-center gap-4">
-          {/* Tombol Lokasi */}
           <a 
             href="https://www.google.com/maps/search/?api=1&query=Menara+Bosowa+Jl.+Jend.+Sudirman+No.5+Makassar" 
             target="_blank" 
@@ -123,7 +129,6 @@ function App() {
             <MapPin size={24} className="group-hover:rotate-12 transition-transform" />
           </a>
 
-          {/* Tombol WhatsApp */}
           <a 
             href="https://wa.me/6281144400723" 
             target="_blank" 
