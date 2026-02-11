@@ -32,16 +32,7 @@ const ContactCTA = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#0f172a]"></div>
 
-          <div className="absolute bottom-6 left-6 lg:bottom-10 lg:left-10">
-            <div className="bg-[#0f172a]/60 backdrop-blur-md border border-white/10 p-3 rounded-xl flex items-center gap-3">
-              <div className="w-7 h-7 bg-white p-1.5 rounded-lg text-[#0f172a] flex items-center justify-center">
-                <Headphones size={14} />
-              </div>
-              <p className="text-white text-[10px] font-black tracking-widest uppercase font-['Montserrat']">
-                Support 24 Jam
-              </p>
-            </div>
-          </div>
+          
         </div>
 
         {/* SISI KANAN: KONTEN */}
